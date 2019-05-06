@@ -9829,8 +9829,7 @@ var _jsxFileName = "/Users/miukki/Sites/fullstack-backbone/pages/index.js";
 
 
 
-var ProjectLink = function ProjectLink(_ref) {
-  var title = _ref.title;
+var ProjectLink = function ProjectLink(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     __source: {
       fileName: _jsxFileName,
@@ -9838,7 +9837,8 @@ var ProjectLink = function ProjectLink(_ref) {
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/project?title=".concat(title),
+    as: "/p/".concat(props.id),
+    href: "/project?title=".concat(props.title),
     __source: {
       fileName: _jsxFileName,
       lineNumber: 8
@@ -9850,11 +9850,20 @@ var ProjectLink = function ProjectLink(_ref) {
       lineNumber: 9
     },
     __self: this
-  }, title)));
+  }, props.title)));
 };
 
 var Index = function Index() {
-  var projects = ['Melody project', 'Nextjs project', 'Deploy apps with Zeit'];
+  var projects = [{
+    title: 'Melody project',
+    id: 0
+  }, {
+    title: 'Nextjs project',
+    id: 1
+  }, {
+    title: 'Deploy apps with Zeit',
+    id: 2
+  }];
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
@@ -9869,8 +9878,9 @@ var Index = function Index() {
     __self: this
   }, projects.map(function (i, index) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ProjectLink, {
+      id: i.id,
       key: index,
-      title: i,
+      title: i.title,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 19
@@ -9884,7 +9894,7 @@ var Index = function Index() {
 
 /***/ }),
 
-/***/ 1:
+/***/ 4:
 /*!**********************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fmiukki%2FSites%2Ffullstack-backbone%2Fpages%2Findex.js ***!
   \**********************************************************************************************************************************/
@@ -9907,5 +9917,5 @@ module.exports = dll_6dc2816e14fab51b8269;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[4,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

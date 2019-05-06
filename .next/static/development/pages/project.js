@@ -9813,7 +9813,7 @@ var Page = Object(next_router__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(functi
 
 /***/ }),
 
-/***/ 2:
+/***/ 0:
 /*!*******************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fproject&absolutePagePath=%2FUsers%2Fmiukki%2FSites%2Ffullstack-backbone%2Fpages%2Fproject.js ***!
   \*******************************************************************************************************************************************/
@@ -9836,5 +9836,5 @@ module.exports = dll_6dc2816e14fab51b8269;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=project.js.map
