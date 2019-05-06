@@ -2,7 +2,7 @@ const express = require('express')
 const next = require('next')
 
 const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dev })
+const app = next({ dev, dir: '.' })
 const handle = app.getRequestHandler()
 
 app
@@ -12,11 +12,16 @@ app
 
     //maping url
     server.get('/projects/:id', (req, res) => {
-      const actualPage = '/project'
+      const actualPage = '/project' 
       const queryParams = { title: req.params.id  }
       app.render(req, res, actualPage, queryParams)
     })
 
+    server.get('/test/:id', (req, res) => {
+      const actualPage = '/mytest' 
+      const queryParams = { title: req.params.id  }
+      app.render(req, res, actualPage, queryParams)
+    })
       
     server.get('*', (req, res) => {
       return handle(req, res)
