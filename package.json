@@ -5,14 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "next",
+    "dev": "node server/server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "NODE_ENV=production node server/server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/miukki/fullstack-backbone.git"
-  },
+  },  
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/miukki/fullstack-backbone#readme",
   "dependencies": {
+    "express": "^4.16.4",
     "next": "^8.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"

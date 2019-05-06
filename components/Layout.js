@@ -1,4 +1,5 @@
 import Header from './Header'
+import Link from 'next/link'
 
 const layoutStyle = {
   margin: 20,
@@ -9,7 +10,8 @@ const layoutStyle = {
 const Layout = props => (
   <div style={layoutStyle}>
     <Header />
-    {props.content}
+
+        {props.content}
   </div>
 )
 
