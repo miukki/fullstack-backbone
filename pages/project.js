@@ -1,23 +1,31 @@
-import { withRouter } from 'next/router'
+import {withRouter} from 'next/router'
 import Layout from '../components/MyLayout.js'
+import fetch from 'isomorphic-unfetch'
 
-
-const Content = withRouter((props => {
-  console.log('props.router.query', props.router.query)
+const Content = ({item}) => {
+  const {summary='', name, image={}} = item;
   return (
     <div>
-      <h1>{props.router.query.title}</h1>
-      <p>Project description</p>
-  </div>
+      <p>{summary.replace(/<[/]?p>/g, '')}</p>
+      <h1>{name}</h1>
+      <img src={image.medium} />
+    </div>
   )
 }
 
-))
-
-const Page = withRouter(props => (
+const Project = props => (
   <Layout>
-    <Content />
+    <Content {...props}/>
   </Layout>
-))
+)
 
-export default Page
+Project.getInitialProps = async function(context) {
+  console.log('context.query!', context.query)
+  const { id } = context.query
+  const res = await fetch(`https://api.tvmaze.com/shows/${id}`)
+  const item = await res.json()
+
+  return {item}
+}
+
+export default Project

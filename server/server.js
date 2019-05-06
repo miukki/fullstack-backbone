@@ -2,7 +2,7 @@ const express = require('express')
 const next = require('next')
 
 const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dev })
+const app = next({dev, dir: '.'})
 const handle = app.getRequestHandler()
 
 app
@@ -11,13 +11,18 @@ app
     const server = express()
 
     //maping url
-    server.get('/projects/:id', (req, res) => {
+    server.get('/project/:id', (req, res) => {
       const actualPage = '/project'
-      const queryParams = { title: req.params.id  }
+      const queryParams = {id: req.params.id, title: req.params.id}
       app.render(req, res, actualPage, queryParams)
     })
 
-      
+    server.get('/test/:id', (req, res) => {
+      const actualPage = '/mytest'
+      const queryParams = {title: req.params.id}
+      app.render(req, res, actualPage, queryParams)
+    })
+
     server.get('*', (req, res) => {
       return handle(req, res)
     })
@@ -28,6 +33,6 @@ app
     })
   })
   .catch(ex => {
-    console.error('Server Error',ex.stack)
+    console.error('Server Error', ex.stack)
     process.exit(1)
   })

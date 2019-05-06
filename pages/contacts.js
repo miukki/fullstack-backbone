@@ -4,8 +4,6 @@ import Layout from '../components/Layout'
 
 const productContent = <p>Contacts page</p>
 
-export default function Contacts () {
-  return (
-    <Layout content={productContent} />
-  )
+export default function Contacts() {
+  return <Layout content={productContent} />
 }
