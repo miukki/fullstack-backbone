@@ -10,6 +10,14 @@ app
   .then(() => {
     const server = express()
 
+    //maping url
+    server.get('/projects/:id', (req, res) => {
+      const actualPage = '/project'
+      const queryParams = { title: req.params.id  }
+      app.render(req, res, actualPage, queryParams)
+    })
+
+      
     server.get('*', (req, res) => {
       return handle(req, res)
     })
@@ -20,6 +28,6 @@ app
     })
   })
   .catch(ex => {
-    console.error(ex.stack)
+    console.error('Server Error',ex.stack)
     process.exit(1)
   })

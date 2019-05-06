@@ -5,5 +5,4 @@ Full stack Backbone for HR idea project
 npm install -g eslint
 
 # Start
-npx next
-
+yarn dev

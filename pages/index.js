@@ -5,7 +5,7 @@ import WithLayout from '../components/WithLayout'
 
 const ProjectLink = (props) => (
   <li>
-    <Link as={`/p/${props.id}`} href={`/project?title=${props.title}`}>
+    <Link as={`/projects/${props.id}`} href={`/project?title=${props.title}`}>
       <a>{props.title}</a>
     </Link>
   </li>
