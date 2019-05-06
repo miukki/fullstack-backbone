@@ -3,20 +3,20 @@ import Header from '../components/Header'
 import Layout from '../components/MyLayout.js'
 import WithLayout from '../components/WithLayout'
 
-const ProjectLink = ({title}) => (
+const ProjectLink = (props) => (
   <li>
-    <Link href={`/project?title=${title}`}>
-      <a>{title}</a>
+    <Link as={`/p/${props.id}`} href={`/project?title=${props.title}`}>
+      <a>{props.title}</a>
     </Link>
   </li>
 )
 
 const Index = () => {
-  const projects = ['Melody project', 'Nextjs project', 'Deploy apps with Zeit'];
+  const projects = [{title: 'Melody project', id: 0}, {title: 'Nextjs project', id: 1}, {title: 'Deploy apps with Zeit', id: 2}];
   return (<>
     <p>Projects</p>
     <ul>
-      {projects.map((i,index) => <ProjectLink key={index} title={i} />)}
+      {projects.map((i,index) => <ProjectLink id={i.id} key={index} title={i.title} />)}
       
     </ul>
   </>
