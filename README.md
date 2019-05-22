@@ -17,3 +17,13 @@ yarn prettier
 
 #Source
 https://github.com/zeit/next.js
+
+
+#Production 
+```
+yanr add global next
+npm run build
+PORT=8000 npm start
+ls -al .next
+
+```
