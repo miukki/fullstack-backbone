@@ -28,8 +28,7 @@ const Index = ({projects}) => {
         </ul>
       </Layout>
     </>
-  )
-}
+  )}
 
 Index.getInitialProps = async function() {
   const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
@@ -44,3 +43,4 @@ Index.getInitialProps = async function() {
 }
 
 export default Index
+
