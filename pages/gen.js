@@ -11,9 +11,9 @@ function * generatorFunction() {
 
 
   function *  generatorFunc() {
-  yield 'a';
-  return 'b'; 
-  yield 'a';  
+    yield 'a';
+    return 'b'; 
+    yield 'a';  
 }
 
 const gObject = generatorFunction(); 
