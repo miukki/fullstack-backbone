@@ -26,4 +26,9 @@ npm run build
 PORT=8000 npm start
 ls -al .next
 
+#Deploy
+```
+#install now
+https://zeit.co/download
+now
 ```
