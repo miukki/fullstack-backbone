@@ -19,15 +19,13 @@ yarn prettier
 https://github.com/zeit/next.js
 
 
-#Production build setup 
+#Production 
 ```
 yanr add global next
 npm run build
 PORT=8000 npm start
 ls -al .next
 
-
-```
 #Deploy
 ```
 #install now
