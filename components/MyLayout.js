@@ -1,13 +1,12 @@
 import Header from './Header'
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const layoutStyle = {
-  margin: 20,
-  padding: 20,
-  border: '1px solid #DDD',
 }
 
 const Layout = props => (
   <div style={layoutStyle}>
+    <CssBaseline />
     <Header />
     {props.children}
   </div>

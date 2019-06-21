@@ -1,11 +1,17 @@
-import Link from 'next/link'
-import Header from '../components/Header'
-import Layout from '../components/MyLayout.js'
-import WithLayout from '../components/WithLayout'
-import fetch from 'isomorphic-unfetch'
-import Head from 'next/head'
+import Link from 'next/link';
+import fetch from 'isomorphic-unfetch';
+import Head from 'next/head';
 import styled from 'styled-components';
 
+import Layout from '../components/MyLayout.js';
+import SubmitBLock from '../components/SubmitBlock.js';
+import WhyCirkle from '../components/WhyCirkle.js';
+import Footer from '../components/Footer.js';
+
+import Team from '../components/Team.js';
+
+import * as data from '../data.json';
+// console.log('data:::', data)
 
 const Title = styled.h1`
   color: purple;
@@ -42,21 +48,27 @@ const Index = ({projects}) => {
   return (
     <>
       <Head>
-        <title>Title</title>
+        <title>Cirkle</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <style>{`body {  margin: 0 !important; } /* custom! */`}</style>
+
       </Head>    
       <Layout>
-        <Title>Projects</Title>
-        <ul>
-          {/* {projects.map((i,index) => <ProjectLink id={i.id} key={index} title={i.title} />)} */}
+
+        <SubmitBLock />
+        <WhyCirkle />
+        <Team />
+        <Footer />
+
+
+        {/* <ul>
+          {projects.map((i,index) => <ProjectLink id={i.id} key={index} title={i.title} />)}
           {projects.map((item, index) => (
             <ProjectLink key={index} {...item} />
           ))}
-        </ul>
+        </ul> */}
+
         <style jsx>{`
-        ul {
-          padding: 0;
-        }
 
       `}</style>
 
@@ -66,68 +78,16 @@ const Index = ({projects}) => {
   )}
 
 Index.getInitialProps = async function() {
-  const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
-  const data = await res.json()
-  // console.log('data!', data)
+  
+  // const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
+  // const data = await res.json()
+
 
   console.log(`Show data fetched. Count: ${data.length}, ${data}`)
 
   return {
-    projects: data.map(entry => entry.show),
+    projects: []//data.map(entry => entry.show),
   }
 }
 
 export default Index
-
-
-
-
-
-// function * generatorFunction() { 
-//   console.log('This will be executed first.');
-//   yield 'Hello, ';  
-//   console.log('I will be printed after the pause');  
-//   yield 'World!';
-// }
-// const generatorObject = generatorFunction(); 
-// console.log(generatorObject.next().value); 
-// console.log(generatorObject.next().value); 
-// console.log(generatorObject.next().value); 
-
-
-// function *  generatorFunc() {
-//   yield 'a';
-//   return 'b'; 
-//   yield 'a';  
-// }
-
-// const gObject = generatorFunction(); 
-
-// console.log('!',gObject.next().value, gObject.next().value)
-
-
-// function * iterableObj() {
-//   yield 'This';
-//   yield 'is';
-//   yield 'iterable.'
-// }
-// for (const val of iterableObj()) {
-//   console.log(val);
-// }
-// // This
-// // is 
-// // iterable.
-
-
-// function fetchJson(url) {
-//   return fetch(url)
-//   .then(request => request.text())
-//   .then(text => {
-//       return JSON.parse(text);
-//   })
-//   .catch(error => {
-//       console.log(`ERROR: ${error.stack}`);
-//   });
-// }
-
-// fetchJson()

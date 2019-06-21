@@ -1,6 +1,14 @@
 // Commonly used to implement server side rendering for css-in-js libraries
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components';
+import styled from 'styled-components';
+
+
+const Title = styled.h1`
+  color: purple;
+`;
+
+
 
 class MyDocument extends Document {
 
@@ -30,7 +38,6 @@ class MyDocument extends Document {
       return (
         <html>
           <Head>
-            <title>My page</title>
             <style>{`body { background: none } /* custom! */`}</style>
             {styleTags}
           </Head>
